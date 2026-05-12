@@ -2,16 +2,15 @@
 
     <PropertyGroup>
         <IsPackable>false</IsPackable>
-        <OutputType>Exe</OutputType>
         <TargetFramework>net10.0</TargetFramework>
         <Version>0.0.1</Version>
-        <Authors>Sample Author</Authors>
-        <Description>Sample Description</Description>
-        <Copyright>Copyright (c) Organization Year</Copyright>
+        <Authors>HowlDev</Authors>
+        <Description>Object-oriented fluent query builders for Postgres/Dapper.</Description>
+        <Copyright>Copyright (c) HowlDev 2026</Copyright>
         <PackageTags></PackageTags>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
-        <RepositoryUrl>https://github.com/Cody-Howell/HowlDev.Cli</RepositoryUrl>
-        <PackageProjectUrl>https://wiki.codyhowell.dev/cli</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/Cody-Howell/HowlDev.IO.OOSql</RepositoryUrl>
+        <PackageProjectUrl>https://wiki.codyhowell.dev/io</PackageProjectUrl>
         <PackageReadmeFile>README.md</PackageReadmeFile>
         <PackageIcon>_HowlDevLogo.png</PackageIcon>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>

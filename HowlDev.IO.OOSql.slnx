@@ -1,11 +1,8 @@
 <Solution>
+  <Project Path="HowlDev.IO.OOSql/HowlDev.IO.OOSql.csproj" />
+  <Project Path="HowlDev.IO.OOSql.Generator/HowlDev.IO.OOSql.Generator.csproj" />
   <Folder Name="/Tests/">
     <Project Path="Tests/HowlDev.IO.OOSql.Generator.Tests/HowlDev.IO.OOSql.Generator.Tests.csproj" />
-  </Folder>
-  <Folder Name="/Tests/HowlDev.IO.OOSql.Tests/">
     <Project Path="Tests/HowlDev.IO.OOSql.Tests/HowlDev.IO.OOSql.Tests.csproj" />
   </Folder>
-  <Project Path="HowlDev.IO.OOSql.Dapper/HowlDev.IO.OOSql.Dapper.csproj" />
-  <Project Path="HowlDev.IO.OOSql.Generator/HowlDev.IO.OOSql.Generator.csproj" />
-  <Project Path="HowlDev.IO.OOSql/HowlDev.IO.OOSql.csproj" />
 </Solution>
