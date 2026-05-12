@@ -1,4 +1,5 @@
-﻿namespace HowlDev.IO.OOSql.Tests; 
+﻿namespace HowlDev.IO.OOSql.Tests;
+
 public class LibraryTests {
     [Test]
     public async Task Test() {

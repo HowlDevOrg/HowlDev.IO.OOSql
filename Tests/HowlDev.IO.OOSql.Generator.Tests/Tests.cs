@@ -1,4 +1,5 @@
-﻿namespace HowlDev.IO.OOSql.Generator.Tests; 
+﻿namespace HowlDev.IO.OOSql.Generator.Tests;
+
 public class GeneratorTests {
     [Test]
     public async Task Test() {
