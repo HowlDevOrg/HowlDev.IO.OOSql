@@ -1,5 +1,4 @@
 using System.Data.Common;
-using System.Reflection;
 using System.Text;
 using Dapper;
 
@@ -15,9 +14,15 @@ public class CompleteQuery<T, D> where T : ISqlTable {
     internal CompleteQuery() {
         StringBuilder builder = new();
         builder.Append("select");
-        var obj = typeof(D).GetProperties();
-        foreach (PropertyInfo item in obj) {
-            builder.Append($" {item.Name} ");
+        var baseTable = Activator.CreateInstance<T>().BaseDTO.GetProperties().Select(a => a.Name.ToLower());
+        var obj = typeof(D).GetProperties().Select(a => a.Name.ToLower()).Where(a => baseTable.Contains(a));
+        
+        if (baseTable.Count() != obj.Count()) {
+            throw new InvalidCastException("Not all properties on the provided class have an equivalent.");
+        }
+
+        foreach (string item in obj) {
+            builder.Append($" {item} ");
         }
 
         builder.Append("from ");

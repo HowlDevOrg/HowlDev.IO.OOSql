@@ -4,8 +4,8 @@ namespace HowlDev.IO.OOSql;
 /// Intermediate query to build full SQL queries off of. 
 /// </summary>
 public class IntermediateQuery<T, D> where T : ISqlTable {
-    internal IntermediateQuery() { }
-    
+    public IntermediateQuery() { }
+
     /// <summary>
     /// Pass in a custom DTO to 
     /// </summary>

@@ -7,5 +7,10 @@ public interface ISqlTable {
     /// <summary>
     /// Returns an <c>IIntermediateQuery</c> to build off of. 
     /// </summary>
-    public IntermediateQuery<ISqlTable, object> From() { return new(); }
+    public static IntermediateQuery<ISqlTable, object> From() { return new(); }
+
+    /// <summary>
+    /// Retrieve the base DTO type for reflection.
+    /// </summary>
+    public Type BaseDTO { get; }
 }
