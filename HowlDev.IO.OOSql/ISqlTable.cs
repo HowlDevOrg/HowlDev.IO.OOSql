@@ -7,5 +7,5 @@ public interface ISqlTable {
     /// <summary>
     /// Returns an <c>IIntermediateQuery</c> to build off of. 
     /// </summary>
-    public IntermediateQuery<ISqlTable, IBaseDTO> From() { return new(); }
+    public IntermediateQuery<ISqlTable, object> From() { return new(); }
 }
