@@ -1,0 +1,15 @@
+services:
+  db:
+   image: postgres
+   restart: always
+   shm_size: 128mb
+   environment:      # Change these variables for your own project
+     POSTGRES_PASSWORD: 123456abc
+     POSTGRES_USER: cody
+     POSTGRES_DB: oosql
+   volumes:
+     - ./sql:/docker-entrypoint-initdb.d     # Enables you to create initialization SQL on startup
+   #   - ./dbdata:/var/lib/postgresql/data   # Enables persistence (database stores on compose down)
+   ports:          # Exposes the 5432 port on your machine to this Docker container
+     - 5432:5432
+   # command: ["postgres", "-c", "log_statement=all"] # Enables verbose logging
