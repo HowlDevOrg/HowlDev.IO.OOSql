@@ -1,9 +1,10 @@
-﻿namespace HowlDev.IO.OOSql.Tests;
+﻿using HowlDev.IO.OOSql.Tests.baseTables;
+
+namespace HowlDev.IO.OOSql.Tests;
 
 public class LibraryTests {
     [Test]
-    public async Task Test() {
-        int item = 1 + 2;
-        await Assert.That(item).IsEqualTo(3);
+    public async Task SingleIntTest() {
+        await Assert.That(SingleIntTable.From().SelectAll().Sql).IsEqualTo("select Id from SingleInt");
     }
 }
