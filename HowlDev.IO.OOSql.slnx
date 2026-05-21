@@ -1,5 +1,6 @@
 <Solution>
   <Project Path="HowlDev.IO.OOSql/HowlDev.IO.OOSql.csproj" />
+  <Project Path="HowlDev.IO.OOSql.Benchmarks/HowlDev.IO.OOSql.Benchmarks.csproj" />
   <Project Path="HowlDev.IO.OOSql.Generator/HowlDev.IO.OOSql.Generator.csproj" />
   <Folder Name="/Tests/">
     <Project Path="Tests/HowlDev.IO.OOSql.Generator.Tests/HowlDev.IO.OOSql.Generator.Tests.csproj" />

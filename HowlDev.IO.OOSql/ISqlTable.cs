@@ -12,5 +12,10 @@ public interface ISqlTable {
     /// <summary>
     /// Retrieve the base DTO type for reflection.
     /// </summary>
-    public Type BaseDTO { get; }
+    public IEnumerable<(Type type, string parameter)> Properties { get; }
+
+    /// <summary>
+    /// Retrieve the table name to use in the query. 
+    /// </summary>
+    public string TableName { get; }
 }

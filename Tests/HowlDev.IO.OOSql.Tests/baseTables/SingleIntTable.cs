@@ -5,5 +5,9 @@ namespace HowlDev.IO.OOSql.Tests.baseTables;
 public class SingleIntTable : ISqlTable {
     public static IntermediateQuery<SingleIntTable, SingleIntDTO> From() => new();
 
-    public Type BaseDTO => typeof(SingleIntDTO);
+    public IEnumerable<(Type type, string parameter)> Properties => [
+        (typeof(int), "Id") 
+    ];
+
+    public string TableName => "singleint";
 }

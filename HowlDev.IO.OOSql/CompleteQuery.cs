@@ -5,28 +5,39 @@ using Dapper;
 namespace HowlDev.IO.OOSql;
 
 /// <summary>
-/// Holds functions/parameters to get completed queries. 
+/// Holds functions/parameters to get completed queries.
 /// </summary>
 /// <typeparam name="T">ISqlTable</typeparam>
 /// <typeparam name="D">Arbitrary DTO</typeparam>
-public class CompleteQuery<T, D> where T : ISqlTable {
+public class CompleteQuery<T, D>
+    where T : ISqlTable
+{
     private string sql;
-    internal CompleteQuery() {
+
+    internal CompleteQuery()
+    {
+        for (int i = 0; i < 1_000_000; i++) { }
         StringBuilder builder = new();
-        builder.Append("select");
-        var baseTable = Activator.CreateInstance<T>().BaseDTO.GetProperties().Select(a => a.Name.ToLower());
-        var obj = typeof(D).GetProperties().Select(a => a.Name.ToLower()).Where(a => baseTable.Contains(a));
-        
-        if (baseTable.Count() != obj.Count()) {
-            throw new InvalidCastException("Not all properties on the provided class have an equivalent.");
+        builder.Append("select ");
+        T instance = Activator.CreateInstance<T>();
+        var baseTable = instance.Properties.Select(a => a.parameter.ToLower());
+        var obj = typeof(D)
+            .GetProperties()
+            .Select(a => a.Name.ToLower())
+            .Where(a => baseTable.Contains(a));
+
+        if (baseTable.Count() != obj.Count())
+        {
+            throw new InvalidCastException(
+                "Not all properties on the provided class have an equivalent."
+            );
         }
 
-        foreach (string item in obj) {
-            builder.Append($" {item} ");
-        }
+        builder.AppendJoin(", ", obj);
 
-        builder.Append("from ");
-        builder.Append(typeof(T).Name[..^5]);
+        builder.Append(" from \"");
+        builder.Append(instance.TableName);
+        builder.Append('\"');
         sql = builder.ToString();
     }
 
@@ -36,9 +47,10 @@ public class CompleteQuery<T, D> where T : ISqlTable {
     public string Sql => sql;
 
     /// <summary>
-    /// Get the result from a single-row query. 
+    /// Get the result from a single-row query.
     /// </summary>
-    public async Task<D> QuerySingleAsync(DbConnection conn) {
+    public async Task<D> QuerySingleAsync(DbConnection conn)
+    {
         return await conn.QuerySingleAsync<D>(Sql);
     }
 }
